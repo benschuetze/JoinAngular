@@ -1,0 +1,105 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100;
+    
+}
+
+.board {
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    min-width: 0;
+    min-height: 0;
+
+    .board-bar {
+        background: rgba(gray, 0.5);
+        padding: 8px 15px;
+        display: flex;
+        align-items: center;
+    
+        p {
+            width: fit-content;
+            margin: auto;
+            margin-left: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+
+    .board-wrapper {
+        display: flex;
+        flex-grow: 1;
+        overflow-x: auto;
+        height: 100%;
+
+        .board-columns {
+            display: flex;
+            flex-grow: 1;
+            height: 100%;
+
+            .board-column {
+                height: 500px;
+                display: flex;
+                flex-grow: 1;
+                flex-direction: column;
+
+                width: 200px;
+                margin: 50px;
+                padding: 25px;
+                box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+                border-radius: 4px;
+
+                &:not(:first-child) {
+                    margin-left: 0;
+                }
+
+                .column-title {
+                    font-size: 16px;
+                    font-weight: 800;
+                    font-family: 'Lato', sans-serif;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+.tasks-container {
+    flex-grow: 1;
+   
+        .task {
+            cursor: pointer;
+            margin: 12px 0px;
+            display: flex;
+            padding: 16px 8px;
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        }
+}
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  
+  .tasks-container.cdk-drop-list-dragging .task:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+

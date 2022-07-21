@@ -1,0 +1,11 @@
+//global styles and changing bulma variables
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Lato:400,800,900');
+
+
+$family-sans-serif: "Nunito", sans-serif;
+
+// Update some of Bulmas component variables
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;

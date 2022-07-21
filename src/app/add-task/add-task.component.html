@@ -1,0 +1,49 @@
+<body>
+    <mat-card class="add-task-container">
+        <h2>Add a task</h2>
+        <form #addTaskForm="ngForm" (ngSubmit)="addNewTask(addTaskForm)">
+
+            <div class="segment">
+                <mat-form-field appearance="fill" required>
+                    <mat-label>Title</mat-label>
+                    <input matInput [(ngModel)]="title" name="title">
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Category</mat-label>
+                    <mat-select  [(ngModel)]="category"  name="category">
+                        <mat-option  *ngFor="let category of task.categories" [value]="category">
+                            {{category}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Description...</mat-label>
+                    <textarea matInput placeholder="Hund waschen" [(ngModel)]="description" name="description"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="segment">
+                <mat-form-field appearance="fill">
+                    <mat-label>Deadline date</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="date" name="date">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Urgency</mat-label>
+                    <mat-select [(ngModel)]="urgency" name="urgency">
+                        <mat-option  *ngFor="let urgency of task.urgencies" [value]="urgency">
+                            {{urgency}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <button class="cancel" mat-button>Cancel</button>
+                <button type="submit" class="add" mat-button color="primary">Add</button>
+            </div>
+        </form>
+    </mat-card>
+    <button (click)="goToBoard()">Ab zum Board</button>
+</body>

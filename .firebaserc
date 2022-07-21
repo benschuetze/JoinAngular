@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "join-7cee9": {
+      "hosting": {
+        "JoinAngular": [
+          "join-7cee9"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "join-7cee9"
+  }
+}

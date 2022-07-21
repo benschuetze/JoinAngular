@@ -31,6 +31,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -99,13 +100,27 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "JoinAngular:build:production",
+            "firebaseProject": "join-7cee9",
+            "firebaseHostingSite": "join-7cee9"
           }
         }
       }
     }
   },
-  "defaultProject": "JoinAngular"
+  "defaultProject": "JoinAngular",
+  "cli": {
+    "analytics": "c759a7fc-7b1c-4163-ac77-831cd59e944a"
+  }
 }
