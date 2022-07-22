@@ -1,0 +1,45 @@
+<mat-card class="add-task-container">
+    <h2>Edit task</h2>
+    <form #addTaskForm="ngForm">
+
+        <div class="segment">
+            <mat-form-field appearance="fill" required>
+                <mat-label>Title</mat-label>
+                <input matInput name="title" [(ngModel)]="data['task']['title']">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select [(ngModel)]="data['task']['category']"  name="category">
+                    <mat-option  *ngFor="let category of categories" [value]="category"  >
+                        {{ category }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Description...</mat-label>
+                <textarea [(ngModel)]="data['task']['description']" matInput placeholder="Hund waschen" name="description"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="segment">
+            <mat-form-field appearance="fill">
+                <mat-label>Deadline date</mat-label>
+                <input [(ngModel)]="date" matInput [matDatepicker]="picker"  name="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker  [startAt]="date" #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Urgency</mat-label>
+                <mat-select [(ngModel)]="data['task']['urgency']"  name="urgency">
+                    <mat-option  *ngFor="let urgency of urgencies" [value]="urgency"  >
+                        {{ urgency }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button class="cancel" mat-button>Cancel</button>
+            <button type="submit" class="add" mat-button color="primary">Add</button>
+        </div>
+    </form>
+</mat-card>

@@ -7,42 +7,46 @@
         <div class="board-wrapper">
             <div class="board-columns" cdkDropListGroup>
                 <div class="board-column">
-                    
+
                     <div class="column-title" id="to-do">To Do</div>
                     <div class="tasks-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="toDo"
                         (cdkDropListDropped)="drop($event, 'to-do')">
-                    <div (pointerdown)="selectTask(t)" class="task" *ngFor="let t of toDo" cdkDrag>
-                            {{t['title']}}
+                        <div (mouseenter)="selectTask(t)" class="task" *ngFor="let t of toDo" cdkDrag>
+                            <p class="task-title">{{t['title']}}</p>
+                            <p>{{ t['description'] }}</p>
+                            <img class="icon" (click)="editTask()" src="../../assets/img/edit.svg" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="board-column"id="in-progress">
+                <div class="board-column" id="in-progress">
                     <div class="column-title">In Progress</div>
                     <div class="tasks-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="inProgress"
-                    (cdkDropListDropped)="drop($event, 'in-progress')">
-                    <div (pointerdown)="selectTask(t)"  class="task" *ngFor="let t of inProgress" cdkDrag>
-                        {{t['title']}}
+                        (cdkDropListDropped)="drop($event, 'in-progress')">
+                        <div (mouseenter)="selectTask(t)" class="task" *ngFor="let t of inProgress" cdkDrag>
+                            <p class="title">{{t['title']}}</p>
+                            <span>{{ t['description'] }}</span>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="board-column" id="testing">
                     <div class="column-title">Testing</div>
                     <div class="tasks-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="testing"
-                    (cdkDropListDropped)="drop($event, 'testing')">
-                    <div (pointerdown)="selectTask(t)"  class="task" *ngFor="let t of testing" cdkDrag>
-                        {{t['title']}}
+                        (cdkDropListDropped)="drop($event, 'testing')">
+                        <div (mouseenter)="selectTask(t)" class="task" *ngFor="let t of testing" cdkDrag>
+                            <p class="title">{{t['title']}}</p>
+                            <span>{{ t['description'] }}</span>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="board-column" id="done">
                     <div class="column-title">Done</div>
                     <div class="tasks-container" cdkDropList #todoList="cdkDropList" [cdkDropListData]="done"
-                    (cdkDropListDropped)="drop($event, 'in-progress')">
-                    <div (pointerdown)="selectTask(t)"  class="task" *ngFor="let t of done" cdkDrag>
-                        {{t['title']}}
+                        (cdkDropListDropped)="drop($event, 'in-progress')">
+                        <div (mouseenter)="selectTask(t)" class="task" *ngFor="let t of done" cdkDrag>
+                            {{t['title']}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>

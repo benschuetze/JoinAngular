@@ -3,6 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -12,13 +14,14 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class BoardComponent implements OnInit {
 
-  constructor(private router: Router, private firestore: AngularFirestore) { }
+  constructor(private router: Router, private firestore: AngularFirestore, public dialog: MatDialog) { }
   tasks:object[];
   toDo:object[];
   inProgress:object[];
   testing:object[];
   done:object[];
   selectedTask:object;
+
   ngOnInit(): void {
 
     this.firestore
@@ -40,13 +43,22 @@ export class BoardComponent implements OnInit {
     console.log(this.selectedTask);
   }
 
-  
+  editTask() {
+    const dialogRef = this.dialog.open(EditTaskComponent, {
+      data: {
+        task: this.selectedTask
+      }
+    });
+  }
 
-    drop(event: CdkDragDrop<object[]>, containerId) {
-      console.log('event data', event);
-      console.log(this.selectedTask);
+  /**
+   * 
+   * @param event : Event Data;
+   * @param containerId : Id of parent container for sorting of tasks and rendering accordingly 
+   */
+
+    drop(event: CdkDragDrop<object[]>, containerId:string) {
       this.selectedTask['boardState'] = containerId;
-      console.log('boardstate change', this.selectedTask);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {

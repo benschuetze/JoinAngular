@@ -22,15 +22,19 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { BoardComponent } from './board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTaskComponent,
-    BoardComponent
+    BoardComponent,
+    EditTaskComponent
   ],
   imports: [
+    MatDialogModule,
     DragDropModule,
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
