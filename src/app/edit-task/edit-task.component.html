@@ -19,7 +19,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Description...</mat-label>
-                <textarea [(ngModel)]="data['task']['description']" matInput placeholder="Hund waschen" name="description"></textarea>
+                <textarea class="textarea" [(ngModel)]="data['task']['description']" matInput placeholder="Hund waschen" name="description"></textarea>
             </mat-form-field>
         </div>
         <div class="segment">
@@ -38,8 +38,8 @@
                 </mat-select>
             </mat-form-field>
 
-            <button class="cancel" mat-button>Cancel</button>
-            <button type="submit" class="add" mat-button color="primary">Add</button>
+            <button class="cancel" mat-button [mat-dialog-close]="'cancel'" >Cancel</button>
+            <button type="submit" class="add" mat-button color="primary" [mat-dialog-close]="data['task']">Save</button>
         </div>
     </form>
 </mat-card>

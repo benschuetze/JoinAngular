@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+
 
 @Component({
   selector: 'app-edit-task',
@@ -26,8 +27,8 @@ export class EditTaskComponent implements OnInit {
 
   date = new Date(this.data['task']['date']['seconds']);
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any
+  constructor(public dialogRef:MatDialogRef<EditTaskComponent>,
+    @Inject(MAT_DIALOG_DATA) public data:any
   ) { }
 
   ngOnInit(): void {
