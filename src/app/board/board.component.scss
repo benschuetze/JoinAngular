@@ -1,8 +1,7 @@
 .root {
     display: flex;
     flex-direction: column;
-    height: 100;
-    
+    height: 100%;
 }
 
 .board {
@@ -46,6 +45,10 @@
                 display: flex;
                 flex-grow: 1;
                 flex-direction: column;
+                background-color: white;
+                overflow: auto;
+                -ms-overflow-style: none;  /* Internet Explorer 10+ */
+                scrollbar-width: none;  /* Firefox */
 
                 width: 200px;
                 margin: 50px;
@@ -58,14 +61,19 @@
                 }
 
                 .column-title {
-                    font-size: 16px;
+                    font-size: 20px;
                     font-weight: 800;
                     font-family: 'Lato', sans-serif;
                     text-transform: uppercase;
+                    color: black;
+                    letter-spacing: 1.4px;
                 }
             }
         }
     }
+}
+.board-column::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 
 .tasks-container {
@@ -98,7 +106,10 @@
   
   
   .cdk-drag-placeholder {
-    opacity: 0;
+    color: black;
+    background-color: black;
+    opacity: 0.1;
+    transition: all 250ms ease;
   }
   
   .cdk-drag-animating {
@@ -120,4 +131,6 @@
     top: 4px;
     right: 4px,
   }
+
+
 

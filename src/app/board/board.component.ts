@@ -61,14 +61,14 @@ export class BoardComponent implements OnInit {
         if (editedTask == 'cancel') {
           return
         } else {
-          this.saveTask(editedTask, taskIndex);
+          this.saveEditedTask(editedTask, taskIndex);
         }
 
       }
     });
   }
 
-  saveTask(editedTask: any, taskIndex:number) {
+  saveEditedTask(editedTask: any, taskIndex:number) {
     this.tasks[taskIndex] = editedTask;
     this.firestore
       .collection('tasks')
@@ -91,8 +91,12 @@ export class BoardComponent implements OnInit {
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex,
-      );
+        event.currentIndex
+      )
+      this.firestore
+      .collection('tasks')
+      .doc(this.selectedTask['id'])
+      .update(this.selectedTask);;
     }
   }
 
