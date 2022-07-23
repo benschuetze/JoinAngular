@@ -26,6 +26,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderComponent } from './header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { DoneModalComponent } from './done-modal/done-modal.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AddTaskComponent,
     BoardComponent,
     EditTaskComponent,
-    HeaderComponent
+    HeaderComponent,
+    DoneModalComponent
   ],
   imports: [
     MatToolbarModule,

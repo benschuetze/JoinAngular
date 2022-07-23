@@ -6,6 +6,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { EditTaskComponent } from '../edit-task/edit-task.component';
 import { MatDialog } from '@angular/material/dialog';
 import { QuerySnapshot } from 'firebase/firestore';
+import { DoneModalComponent } from '../done-modal/done-modal.component';
 
 
 @Component({
@@ -55,7 +56,7 @@ export class BoardComponent implements OnInit {
       }
     });
 
-    dialogRef.afterClosed().subscribe((editedTask: any) => {
+    dialogRef.afterClosed().subscribe((editedTask: any) => { // editedTask is change from dialog
       let taskIndex = this.tasks.indexOf(this.selectedTask);
       if (editedTask) { // hier noch name
         if (editedTask == 'cancel') {
@@ -100,4 +101,11 @@ export class BoardComponent implements OnInit {
     }
   }
 
+  openDoneModal() {
+    const dialogRef = this.dialog.open(EditTaskComponent, {
+      data: {
+        task: this.selectedTask
+      }
+    });
+  }
 }

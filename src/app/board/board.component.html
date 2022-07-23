@@ -45,6 +45,7 @@
                             <p class="task-title">{{t['title']}}</p>
                             <p>{{ t['description'] }}</p>
                             <img class="icon" (click)="editTask()" src="../../assets/img/edit.svg" alt="">
+                            <img *ngIf="t['boardState'] == 'done'" style="height: 24px;" class="icon2" src="../../assets/img/done.svg" alt="">
                         </div>
                     </div>
                 </div>
