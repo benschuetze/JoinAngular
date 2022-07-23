@@ -3,7 +3,7 @@
 @import 'main-styles.scss';
 @import '../node_modules/bulma/bulma.sass';
 
-html, body { height: 100%; }
+html, body { height:100%; overflow: hidden;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 textarea {

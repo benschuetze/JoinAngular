@@ -24,6 +24,8 @@ import { BoardComponent } from './board/board.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HeaderComponent } from './header/header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -31,9 +33,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppComponent,
     AddTaskComponent,
     BoardComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    HeaderComponent
   ],
   imports: [
+    MatToolbarModule,
     MatDialogModule,
     DragDropModule,
     BrowserModule,

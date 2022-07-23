@@ -1,0 +1,30 @@
+span {
+    font-size: 23px;
+}
+
+.header-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.go-to-board {
+    border-radius: 4px;
+    padding: 0px 8px;
+    margin: 8px 0px;
+
+    &:hover {
+        transition: all 225ms ease;
+        background-color: #b8b8b8;
+    }
+}
+

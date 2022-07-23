@@ -1,9 +1,18 @@
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+
+@include textfield.core-styles;
+
 body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #2F3061;
+    height: calc(100% - 64px);
+    overflow: hidden;
 
     .add-task-container {
         width: 500px;
@@ -51,4 +60,8 @@ body {
 
 
 
+}
+
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
